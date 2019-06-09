@@ -1,4 +1,17 @@
-import Posts from './Posts/Posts';
-import PostDetail from './PostDetail/PostDetail';
+import { lazy } from 'react';
+import Loader from './Common/Loader';
 
-export { Posts, PostDetail };
+const AsyncPosts = lazy(() =>
+  import(
+    './Posts/Posts'
+    /* webpackChunkName: "posts-page" */
+  ),
+);
+const AsyncPostDetail = lazy(() =>
+  import(
+    './PostDetail/PostDetail'
+    /* webpackChunkName: "post-details-page" */
+  ),
+);
+
+export { AsyncPosts, AsyncPostDetail, Loader };
